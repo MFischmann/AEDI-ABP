@@ -290,9 +290,33 @@ public class BinarySearchTreeOfInteger {
      * Retorna a altura da arvore. Deve chamar um metodo auxiliar recursivo.
      * @return altura da arvore
      */    
-    public int height() {        
-        //Implemente este metodo (de preferencia de forma recursiva)
-        return 0;
+    public int height() {
+        int h;
+        if(root == null){
+            h = -1;
+        }
+        else{
+            h = heightAux(root)-1;
+        }
+        return h;
+    }
+
+    private int heightAux(Node aux){
+        int hAuxL = 0;
+        int hAuxR = 0;
+        if(aux.left != null){
+            hAuxL = heightAux(aux.left);
+        }
+        if(aux.right != null){
+            hAuxR = heightAux(aux.right);
+        }
+
+        if(hAuxL > hAuxR){
+            return 1 + hAuxL;
+        }
+        else{
+            return 1 + hAuxR;
+        }
     }
     
     /** 
