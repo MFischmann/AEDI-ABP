@@ -426,7 +426,15 @@ public class BinarySearchTreeOfInteger {
      */
     @Override
     public BinarySearchTreeOfInteger clone() {
-        return null;
+        BinarySearchTreeOfInteger clone = new BinarySearchTreeOfInteger();
+        cloneAux(root, clone);
+        return clone;
     }
-    
+    private void cloneAux(Node n, BinarySearchTreeOfInteger clone){
+        if(n !=null){
+            clone.add(n.element);
+            cloneAux(n.left, clone);
+            cloneAux(n.right, clone);
+        }
+    }
 }
